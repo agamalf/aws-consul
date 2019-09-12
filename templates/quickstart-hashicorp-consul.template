@@ -275,12 +275,16 @@ Resources:
               command: systemctl enable cfn-hup.service
             02start_cfn_hup:
               command: systemctl start cfn-hup.service
+             
         install_consul:
           sources:
             /usr/bin/: https://releases.hashicorp.com/consul/1.6.0/consul_1.6.0_linux_amd64.zip
         install_consul_template:
           sources:
             /usr/bin/: https://releases.hashicorp.com/consul-template/0.21.0/consul-template_0.21.0_linux_amd64.zip
+          commands:
+            01_create_conf_dir
+              command: mkdir /etc/consul
         consul_bootstrap:
           files:
             /etc/systemd/system/consul.service: 
