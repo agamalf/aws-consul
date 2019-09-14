@@ -230,8 +230,8 @@ Resources:
   HashiCorpConsulStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: !Sub >-
-        https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}templates/quickstart-hashicorp-consul.template
+      TemplateURL:
+        https://my-aws-consul.s3-us-west-2.amazonaws.com/template1
       Parameters:
         BastionSecurityGroupID: !GetAtt 
           - BastionStack
